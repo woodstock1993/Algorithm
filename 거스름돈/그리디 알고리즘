@@ -1,0 +1,12 @@
+문제) 거스름돈이 1260원이다. 500원 100원 50원 10원 각각의 동전이 무한대로 있을 때 가장 적게 거슬러 주는 방법을 구현하시오.
+
+n = 1260
+count = 0
+
+coin_types = [500,100,50,10]
+
+for coin in coin_types:
+    count += n //coin
+    n %= coin
+
+    print(count)
