@@ -1,0 +1,22 @@
+map 함수 구조 
+  map(function_to_apply, list_of_inputs)
+  ex) items = [1, 2, 3, 4, 5]
+      squared = list(map(lambda x : x^2, items))
+      
+      #list comprehension
+      squared = [x^2 for x in items]
+      
+//map이 반환하는 것은 list 자료형이 아니다
+//map 함수가 반환하는 것은 Iterator를 반환한다
+//Iterator를 list 자료형으로 반환한다 
+//Iterator를 다른 자료형으로 반환할 수 있다 
+//
+
+Filter()
+  특정 조건에 부합하는 값만 출력하고 싶을 때 사용한다. 
+  ex) items = range(-5 ,5)
+      less_than_zero = filter(map(lambda x : x < 0, items))
+      
+      #list comprehension
+      less_than_zero = [ x for x in items of x <0 ]
+      
