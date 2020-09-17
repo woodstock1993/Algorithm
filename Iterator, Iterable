@@ -1,0 +1,16 @@
+Iterator
+  다음 값을 반환해주는 객체 
+  Iterable 객체의 element를 모두 반환하는 기능
+  next() 함수 호출이 가능 >>> 객체에 __next__() 메소드를 가짐
+  
+  ex) list = [1, 2, 3, 4, 5]
+      it = iter(list) # type(it) >>> <class 'list-iterator'>
+      iter() 함수 안에는 iterable객체만 들어갈 수 있음 
+  
+  # Iterator class 에서 instance 생성시 '__iter__()'가 들어있어야 iterable 객체를 생성할 수 있음 
+  
+  ex) class Iterator():
+      
+      def __iter__(self)
+        return self
+      
