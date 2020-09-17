@@ -12,21 +12,21 @@ Iterator
   
   # Iterator가 있는 최소한의 Class 
   >>> class Range:
-...     def __init__(self, n):
-...         self.n = n
-...         self.c = 0
-...     def __iter__(self):
-...         return self # 이터레이터인 경우는 자신을 돌려주면 됩니다.
-...     def __next__(self):
-...         if self.c < self.n:
-...             v = self.c
-...             self.c += 1
-...             return v
-...         else:
-...             raise StopIteration
-...     next = __next__ # 파이썬 2 에서는 __next__ 대신 next 를 사용합니다.
+     def __init__(self, n):
+         self.n = n
+         self.c = 0
+     def __iter__(self):
+         return self # 이터레이터인 경우는 자신을 돌려주면 됩니다.
+     def __next__(self):
+         if self.c < self.n:
+             v = self.c
+             self.c += 1
+             return v
+         else:
+             raise StopIteration
+     
 >>> for x in Range(3):
-...     print(x)
+     print(x)
 0
 1
 2
