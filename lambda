@@ -7,8 +7,8 @@ def edit_story(words,func):
   for word in words:
     print(func(word))
   
-  def enliven(word):
-    return word.capitalize() + '!'
+def enliven(word):
+  return word.capitalize() + '!'
 
 stairs = ['thud', 'meow', 'thud', 'hiss']
 
