@@ -1,0 +1,50 @@
+str()
+  사용목적 : 다른 유형의 자료형 데이터와 호환될 수 있도록 문자열화 하는 데 목적이 있다(다른 자료형 간 인터페이스 제공) 
+  입력받은 객체가 속해있는 클래스 내 매직메서드 __str__를 호출한다 
+  입력받은 객체를(어떤 데이터 타입이든지 간에) 문자열화 해서 반환한다
+  
+
+repr() # representation
+  사용목적 : 객체를 인간이 이해할 수 있는 평문('plain text')으로 표현
+  입력받은 객체가 속해있는 클래스 내 매직메서드 __repr__를 호출한다 
+  python interpreter가 해당 객체를 인식할 수 있는 공식적인 문자열로 나타낼 때 사용
+  
+  ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+  X = 'python'
+  
+  str(X)
+  >>> python
+  
+  repr(X)
+  >>> 'python'
+  
+  eval(repr(X))
+  >>> python
+  
+  str(X) == repr(X)
+  >>> False
+  
+  str(X) == eval(repr(X))
+  >>> True 
+  ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+  class A:
+      def __str__(self):
+          return 'str method is called'
+
+      def __repr__(self):
+          return 'repr method is called'
+
+  a = A()
+
+  str(a)  # 1.
+  a  # 2.
+
+  # Look at here!
+  print(a)  # 3.
+
+  'str method is called' # 1.
+  repr method is called  # 2.
+
+  # Look at here!
+  str method is called   # 3.
+  ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
