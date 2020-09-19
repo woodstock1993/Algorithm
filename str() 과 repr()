@@ -36,15 +36,12 @@ repr() # representation
 
   a = A()
 
-  str(a)  # 1.
-  a  # 2.
-
-  # Look at here!
-  print(a)  # 3.
-
-  'str method is called' # 1.
-  repr method is called  # 2.
-
-  # Look at here!
-  str method is called   # 3.
+  str(a)  
+  >>> 'str method is called' 
+  
+  a 
+  >>> 'repr method is called' 
+  
+  print(a)
+  >>> str method is called
   ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
