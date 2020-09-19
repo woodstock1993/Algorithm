@@ -1,0 +1,31 @@
+packing
+  인자로 받은 여러개의 값을 하나의 객체로 합쳐서 받을 수 있게 한다
+
+def func(*args):   # 매개변수 이름 앞에 *을 붙이면 위치인자로 보낸 모든 객체들을 하나의 객체로 관리해준다
+  print(args)
+  print(type(args))
+ 
+>>> func(1,2,3,4,5, 'a','b','c','d','e')
+(1,2,3,4,5, 'a','b','c','d','e')
+<class 'tuple'>
+
+def kwpacking(**kwargs):
+  print(kwargs)
+  print(type(kwargs)
+
+>>> kwpacking(a=1, b=2, c=3)
+{'a': 1, 'b': 2, 'c': 3}
+<class 'dict'>
+
+unpacking 
+  여러개의 객체를 포함하고 있는 하나의 객체를 풀어준다
+  
+  사용방법 : 매개변수에 *을 붙이는게 아니라 인자 앞에 *를 붙여서 사용해야한다 
+  
+def sum(a, b, c):
+  return a + b + c
+
+numbers = [1, 2, 3]
+sum(numbers) # error
+
+print(sum(*numbers)) # 출력 : 6
