@@ -2,27 +2,6 @@ functools.wrpas
   functools.update_wrapper
   functools.partial
 
------ ----- ----- ----- ----- ----- ----- ----- 
-**functools.update_wrapper()
-  
-from functools import update_wrapper
-
-def wrapper(*args, **kwargs): 
-    pass
-
-def add(a, b):
-    """ ADD a + b """
-    return a + b
-
-print(wrapper.__doc__) # None
-print(wrapper.__name__) # wrapper
-
-update_wrapper(wrapper, add)
-
-print(wrapper.__doc__) # None → ADD a + b
-print(wrapper.__name__) # wrapper → add
------ ----- ----- ----- ----- ----- ----- ----- 
-**functools.partial
-
-link below
+link 참조 
 https://velog.io/@doondoony/python-functools-wraps
+
