@@ -1,0 +1,4 @@
+n, m, k = list(map(int, input().split()))
+
+import sys
+data = sys.stdin.readline().rstrip()
