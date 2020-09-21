@@ -1,3 +1,6 @@
+반복의 의미
+  무엇인가의 각 항목을 차례로 가져오는 것. 루프를 사용하여 항목 그룹을 반복할 때의 반복.
+
 Iterator
   다음 값을 반환해주는 객체 
   Iterable 객체의 element를 모두 반환하는 기능
@@ -5,18 +8,18 @@ Iterator
   
   ex) list = [1, 2, 3, 4, 5]
       it = iter(list) # type(it) >>> <class 'list-iterator'>
-      iter() 함수 안에는 iterable객체만 들어갈 수 있음 
+      ** iter() 함수 안에는 iterable객체만 들어갈 수 있음 
   
   # Iterator class 에서 instance 생성시 '__iter__()'가 들어있어야 iterable 객체를 생성할 수 있음 
   
   
   # Iterator가 있는 최소한의 Class 
-  >>> class Range:
+     class Range:
      def __init__(self, n):
          self.n = n
          self.c = 0
      def __iter__(self):
-         return self # 이터레이터인 경우는 자신을 돌려주면 됩니다.
+         return self # 이터레이터인 경우는 대개는 자신을 돌려주면 됩니다.
      def __next__(self):
          if self.c < self.n:
              v = self.c
