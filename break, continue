@@ -17,6 +17,14 @@ for i in range(10000)
     print(i)
     if i == 100:
         break 
+----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+return과 재귀 
+def factorial_recursion(n):
+    if i >= 1
+        return 
+    return n * factorial_recursion(n - 1)
+    
+factorial_recursion(n)
 ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- 
 for와 continue의 이해 
 
