@@ -1,0 +1,29 @@
+Q. 특정 클래스에서 생성된 객체(attribute, type, id)에서 해당 객체가 있는 클래스의 메서드를 호출할 때 메서드에 인자로 self를 넣는데 그 때 객체
+   기준으로 메서드를 호출할 때 메서드가 함수의 attribute에 접근하기 위함이다 
+   
+   대개 class 내의 method는 해당 클래스의 인스턴스를 위한 메서드로 사용되기 때문에 인자로 'self'를 넣는다. 
+   class Cake를 위한 method로서도 사용될 수 있는데 이 때에는 인자에 'self'를 넣지 않으면 사용할 수 있다. 
+   
+   
+   class Cake:
+      '''케잌 클래스'''
+      
+      coat = '생크림'
+      
+      def this_is(self):
+          print('이 케잌은 겉면이 self.coat로 되어있습니다')
+  
+cake_1 = Cake()
+cake_1.coat = 'chocolate'
+
+cake_2 = Cake()
+cake_2.coat = 'vanila'
+
+cake_1.this_is()
+>>> 이 케잌은 겉면이 chocolate로 되어있습니다
+
+cake_2.this_is()
+>>> 이 케잌은 겉면이 vanila로 되어있습니다
+
+def add(a, b):
+    reutrn a + b 와 같은 함수를 떠올려 보면 메서드에 왜 인자로 self를 넣는지 알 수 있다 
