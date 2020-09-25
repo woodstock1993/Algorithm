@@ -1,0 +1,90 @@
+반복의 의미
+  무엇인가의 각 항목을 차례로 가져오는 것. 루프를 사용하여 항목 그룹을 반복할 때의 반복
+
+for 문에서의 반복 
+  시퀀스, 집합, 매핑(dict) 모두 for문으로 순회할 수 있다 
+  매핑을 순회할 때는 키, 값, 키-값 쌍 중 무엇을 순회할지 고려하여 선택할 수 있다 
+
+Iterator
+  다음 값을 반환해주는 객체 (다음에 무엇을 출력할 차례인지 기억하여 데이터를 순서대로 꺼낼 수 있게한다) 
+  Iterable 객체의 element를 모두 반환하는 기능 
+  next() 함수로 값을 하나씩 꺼낼 수 있는 데이터 
+  
+  iter() 함수와 next() 함수가 필요
+    iter() 함수 : 반복 가능한 데이터를 입력받아 iterator를 반환하는 함수 
+    next() 함수 : 반복자를 입력받아 다음 출력값을 반환하는 함수 
+    반복 가능한 데이터 : iter() 함수로 반복자를 구할 수 있는 데이터 
+    
+  next() 함수 호출이 가능 >>> 객체에 __next__() 메소드를 가짐
+  iter() 함수 호출이 가능 >>> 객체에 __iter__() 메소드를 가짐 
+  
+  ex) list = [1, 2, 3, 4, 5]
+      it = iter(list) # type(it) >>> <class 'list-iterator'>
+      ** iter() 함수 안에는 iterable객체만 들어갈 수 있음 
+  
+  # Iterator class 에서 instance 생성시 '__iter__()'가 들어있어야 iterable 객체를 생성할 수 있음 
+  
+  
+  # Iterator가 있는 최소한의 Class 
+     class Range:
+     def __init__(self, n):
+         self.n = n
+         self.c = 0
+     def __iter__(self):
+         return self # 이터레이터인 경우는 대개는 자신을 돌려주는 코드를 작성한다 
+     def __next__(self):
+         if self.c < self.n:
+             v = self.c
+             self.c += 1
+             return v
+         else:
+             raise StopIteration
+     
+  >>> for x in Range(3):
+      print(x)
+  0
+  1
+  2
+  
+generator 
+  * 정해둔 순서대로 값을 생성하는 함수를 정의하면, 이 함수에서 yield를 이용해 값을 하나씩 꺼내는 반복자를 만들 수 있다. 
+  이런 식으로 값을 생성해 내는 반복자를 'generator'라 한다
+  * 생성기는 반복자의 한 종류다 
+  * yield문이 포함된 함수를 실행하면 생성기가 반환된다. 생성기를 next() 함수에 전달해 실행시키면 함수의 본문이 실행된다.
+  * yield 문은 값을 내어준 후 생성기의 실행을 일시정지한다. next() 함수가 실행되면 정지했던 위치에서부터 다시 실행한다.
+  
+  yield문 
+    함수로 생성기를 만들 때 yield 문이 필요하다. yield문은 return 문처럼 함수가 값을 반환하고 정지하도록 하는데, 그 
+    함수를 나중에 다시 실행하면 정지했던 위치부터 다시 실행되도록 한다. yield문이 포함된 함수는 일반 함수와 달리 호
+    출 했을 때 생성기를 반환한다. 
+  
+  ex) def abc(): # 생성기를 반환하는 함수 정의하기 
+        ''' a, b, c 를 출력하는 생성기를 반환한다 '''
+        yield 'a'
+        yield 'b'
+        yield 'c'
+        
+      abc_generator = abc() # 생성기 만들기 
+      next(abc_generator) # a
+      next(abc_generator) # b
+      next(abc_generator) # c
+      
+      ** 함수 자체는 생성기가 아니다. 생성기는 yield 
+      
+  생성기를 리스트와 튜플로 변환하기 
+    def countdown(start, end):
+      ''' start(포함)부터 end(비포함)까지 거꾸로 세는 생성기를 반환한다'''
+      n = start 
+      while end < n:
+        yield n
+        n -= 1
+    
+    list(countdown(10,0)) # 생성기를 리스트로 변환하기 
+    
+    tuple(countdown(100, 95)) # 생성기를 튜플로 변환하기 
+    
+    무한한 범위의 생성기를 리스트 튜플로 변환할 수 없다. 
+  
+
+
+  
