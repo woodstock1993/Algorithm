@@ -1,0 +1,12 @@
+Name Space
+ 특정한 객체(Object)를 이름(Name)에 따라 구분할 수 있는 범위
+ 
+ LEGB
+    Local - Names which are assigned within a function 
+    Enclosing - Names which are assigned in a closure(function in a function)
+    Global - Names which are assigned at th top level of a module, for example on the top-level of your Python file
+    Built-in Names which are standard Python built-ins, such as open, import print, return, Exception 
+    
+    > The lowest of the scopes is local, therefore the highest is the built-in
+    > Lower scopes can always access names in higher scopes 
+    > Higher scopes can never access names in lower scopes 
