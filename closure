@@ -1,0 +1,17 @@
+closure
+  인라인 함수에서 함수 안이 아닌 외부에서 선언한 값을 가져오는 것 
+
+data = 'global hi!!'
+def example_function():
+    data = 'hi!!'
+    def inline_function():
+        data = 'third'
+        def inline2_function():
+            nonlocal data
+            data ='hello'
+            print(data)
+        inline2_function()
+    inline_function()
+
+example_function()
+>>> hello
